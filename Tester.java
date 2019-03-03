@@ -54,10 +54,26 @@ public class Tester extends JFrame
 		setVisible(true);
     }
 
-	private String encrypt(String text)
-	{
-		return text.toUpperCase();
-	}
+	public String encrypt(String text)
+    {
+        return text.toUpperCase();
+    }
+
+	//method header, takes a string and an int (the shift)
+	public String encrypt(String text, int shift)
+    {
+		//convert the passed string to a char array for processing
+		char[] charArray = text.toCharArray();
+
+		//iterate over the char array and apply the shift
+		for(int i = 0; i < charArray.length; i++)
+		{
+			charArray[i] += shift;
+		}
+
+		//convert the shifted string and pass it back to the caller
+		return String.copyValueOf(charArray);
+    }
 
 	private class CloseProgram extends WindowAdapter
     {
@@ -74,7 +90,8 @@ public class Tester extends JFrame
 
 			if(e.getSource() == encryptButton)
 			{
-				outputText.setText(encrypt(inputText.getText()));
+				//outputText.setText(encrypt(inputText.getText()));
+				outputText.setText(encrypt(inputText.getText(), 5));
 			}
 
             if(e.getSource() == decryptButton)
