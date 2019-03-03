@@ -43,10 +43,17 @@ public class Tester extends JFrame
 		outputText.setBounds(252, 31, 150, 120);
 		outputText.setEditable(false);
 
+		inputLabel = new JLabel("Input:");
+		outputLabel = new JLabel("Output:");
+		inputLabel.setBounds(78, 5, 64, 32);
+		outputLabel.setBounds(252, 5, 64, 32);
+
 		add(encryptButton);
 		add(decryptButton);
 		add(inputText);
 		add(outputText);
+		add(inputLabel);
+		add(outputLabel);
 	}
 	
 	public void runProgram()
